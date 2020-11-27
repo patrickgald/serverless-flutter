@@ -86,7 +86,7 @@ function getDistanceToCampus(latNow, longNow){
         
         let distanceCalc = distance(latNow, longNow, latSearch, longSearch);
         
-        if(distanceCalc < 0.3) 
+        if(distanceCalc < 0.1) 
             return campus.unidades[index].name;
     }
     
