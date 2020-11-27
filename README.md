@@ -17,30 +17,30 @@ O Objetivo deste trabalho é desenvolver uma pequena aplicação usando Serverle
 
 ##### ☁️ Cloud Function
 
-👍 🤙 A função não possui restrições de acesso
+👍 🤙 A função não possui restrições de consumo!
 
 - Para enviar uma coordenada geográfica e verificar se a localização está próxima à qualquer unidade PUC Minas, faça uma requisição GET ao endereço:
 
 ```
-$ https://southamerica-east1-fluted-curve-296915.cloudfunctions.net/ldamd?<LATITUDE>,<LONGITUDE>
+$ https://southamerica-east1-fluted-curve-296915.cloudfunctions.net/ldamd?lat=<LATITUDE>&long=<LONGITUDE>
 ```
 - Os possíveis retornos são:
 ```
 -- 200: PUC Minas <Unidade>
--- 400: Campus not found
+-- 204: Campus not found
 ```
 - Exemplo:
 
 ```
-$ https://southamerica-east1-fluted-curve-296915.cloudfunctions.net/ldamd?-19.9550665,-44.2006218
+$ https://southamerica-east1-fluted-curve-296915.cloudfunctions.net/ldamd?lat=-19.9550665&long=-44.2006218
 // Response: PUC Minas Betim
 ```
-### Execução
-
-### Alunos
+### 🛰️ Execução
+![Execução](https://media2.giphy.com/media/i2eSgD5kYxAuHy7dvK/giphy.gif)
+### 👨‍🎓 Alunos
 * Patrick Galdino - [patrickgald](https://github.com/patrickgald)
 
-### Professor responsável
+### 👨‍🏫 Professor responsável
 
 * Hugo Bastos de Paula - [hugodepaula](https://github.com/hugodepaula)
 
