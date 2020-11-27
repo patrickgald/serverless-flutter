@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart';
 
 
 void main() {
@@ -42,10 +41,10 @@ class _LocationPageState extends State<LocationPage>{
 
     _positionStream = Geolocator().getPositionStream(locationOptions)
         .listen((Position position) {
-          setState(() {
-            print(position);
-            _position = position;
-          });
+      setState(() {
+        print(position);
+        _position = position;
+      });
     });
   }
 
@@ -57,13 +56,14 @@ class _LocationPageState extends State<LocationPage>{
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(appBar: AppBar(
       title: Text("LDAMD - Serverless"),
     ),
-    body: Center(
-      child: Text("Localização: ${_position?.latitude?? '-'}, "
-          "${_position?.longitude?? '-'}"),
-    ),
+      body: Center(
+        child: Text("Localização: ${_position?.latitude?? '-'}, "
+            "${_position?.longitude?? '-'}"),
+      ),
     );
   }
 }
