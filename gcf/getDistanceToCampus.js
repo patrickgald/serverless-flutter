@@ -1,12 +1,17 @@
-//:::  Função de cálculo da distância extraído de :                           :::
-//:::  https://www.geodatasource.com                                          :::
-//:::                                                                         :::
-//:::  GeoDataSource.com (C) All Rights Reserved 2018                         :::
-//:::                                                                         :::
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/**
+ * Responds to any HTTP request.
+ *
+ * @param {!express:Request} req HTTP request context.
+ * @param {!express:Response} res HTTP response context.
+ * 
+ * Função de cálculo da distância extraído de : 
+ * https://www.geodatasource.com 
+ *
+ */
 
+exports.hasCampusGPS = (req, res) => {
 
-const campus = {
+  const campus = {
   "unidades": [{
     "name": "PUC Minas Betim",
     "lat": -19.9550665,
@@ -49,8 +54,9 @@ const campus = {
   }]
 }
 
-const latMe = -19.954131421451592;
-const longMe = -44.198834108726565;
+let params = req.url.split('?')[1]; 
+const latMe =  params.split(',')[0];
+const longMe = params.split(',')[1];
 
 function distance(lat1, lon1, lat2, lon2) {
 	if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -88,4 +94,12 @@ function getDistanceToCampus(latNow, longNow){
     return false;
 }
 
-console.log(getDistanceToCampus(latMe, longMe));
+let hasCampus = getDistanceToCampus(latMe, longMe);
+
+if(hasCampus== false){
+  res.status(400).send('Campus not found');
+} else{
+  res.status(200).send(hasCampus);
+}
+
+};
