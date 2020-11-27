@@ -2,12 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart';
+
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,10 +58,10 @@ class _LocationPageState extends State<LocationPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(
-      title: Text("Location"),
+      title: Text("LDAMD - Serverless"),
     ),
     body: Center(
-      child: Text("Location ${_position?.latitude?? '-'}, "
+      child: Text("Localização: ${_position?.latitude?? '-'}, "
           "${_position?.longitude?? '-'}"),
     ),
     );
