@@ -54,9 +54,8 @@ exports.hasCampusGPS = (req, res) => {
   }]
 }
 
-let params = req.url.split('?')[1]; 
-const latMe =  params.split(',')[0];
-const longMe = params.split(',')[1];
+const latMe =  req.query.lat;
+const longMe = req.query.long;
 
 function distance(lat1, lon1, lat2, lon2) {
 	if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -99,7 +98,7 @@ let hasCampus = getDistanceToCampus(latMe, longMe);
 if(hasCampus== false){
   res.status(400).send('Campus not found');
 } else{
-  res.status(200).send(hasCampus);
+  res.status(204).send(hasCampus);
 }
 
 };
