@@ -96,9 +96,9 @@ function getDistanceToCampus(latNow, longNow){
 let hasCampus = getDistanceToCampus(latMe, longMe);
 
 if(hasCampus== false){
-  res.status(400).send('Campus not found');
+  res.status(204).send('Campus not found');
 } else{
-  res.status(204).send(hasCampus);
+  res.status(200).send(hasCampus);
 }
 
 };
